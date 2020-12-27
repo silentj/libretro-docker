@@ -1,4 +1,4 @@
-FROM microsoft/windowsservercore
+FROM microsoft/windowsservercore:ltsc2019
 
 SHELL ["powershell"]
 
