@@ -1,0 +1,16 @@
+name: Build and publish retroarch-uwp Docker image
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+
+  build:
+
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Build the Docker image
+      run: docker build . --file retroarch-uwp/Dockerfile --tag retroarch-uwp:$(date +%s)
