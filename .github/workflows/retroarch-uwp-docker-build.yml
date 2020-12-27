@@ -8,7 +8,10 @@ jobs:
 
   build:
 
-    runs-on: windows-latest
+    # The Dockerfile must run on the same OS version as it builds
+    # so lock this version down. If this needs to change, I also
+    # need to change the FROM image in the Dockerfiles
+    runs-on: windows-2019
 
     steps:
     - uses: actions/checkout@v2
