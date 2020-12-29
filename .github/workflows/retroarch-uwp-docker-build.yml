@@ -14,14 +14,20 @@ jobs:
     runs-on: windows-2019
 
     steps:
-      - name: Check out the repo
+      - 
+        name: Check out the repo
         uses: actions/checkout@v2
-      - name: Build the Docker image
+      - 
+        name: Build the Docker image
         run: docker build --tag retroarch-uwp:$(date +%s) retroarch-uwp
-      - name: Push to Docker Hub
-        uses: docker/build-push-action@v1
+      -
+        # I use this one over the docker one because it support Windows
+        name: Build & push Docker image
+        uses: mr-smithers-excellent/docker-build-push@v5
         with:
+          image: silentj/libretro-docker
+          tags: retroarch-uwp:$(date +%s)
+          registry: docker.io
+          dockerfile: retroarch-uwp/Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
-          repository: silentj/libretro-docker
-          tag_with_ref: true
