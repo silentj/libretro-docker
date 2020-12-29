@@ -28,6 +28,6 @@ jobs:
           image: silentj/libretro-docker
           tags: latest
           registry: docker.io
-          dockerfile: retroarch-uwp/Dockerfile
+          directory: retroarch-uwp
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
