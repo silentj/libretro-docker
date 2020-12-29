@@ -17,11 +17,9 @@ jobs:
       - 
         name: Check out the repo
         uses: actions/checkout@v2
-      - 
-        name: Build the Docker image
-        run: docker build retroarch-uwp
       -
-        # I use this one over the docker one because it support Windows
+        # The official Docker build-push-action doesn't support Windows:
+        # https://github.com/docker/build-push-action/issues/18
         name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
