@@ -29,5 +29,6 @@ jobs:
           tags: latest
           registry: docker.io
           directory: retroarch-uwp
+          dockerfile: retroarch-uwp/Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
