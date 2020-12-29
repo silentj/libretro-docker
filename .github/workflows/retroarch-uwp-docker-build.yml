@@ -19,14 +19,14 @@ jobs:
         uses: actions/checkout@v2
       - 
         name: Build the Docker image
-        run: docker build --tag retroarch-uwp:$(date +%s) retroarch-uwp
+        run: docker build retroarch-uwp
       -
         # I use this one over the docker one because it support Windows
         name: Build & push Docker image
         uses: mr-smithers-excellent/docker-build-push@v5
         with:
           image: silentj/libretro-docker
-          tags: retroarch-uwp:$(date +%s)
+          tags: latest
           registry: docker.io
           dockerfile: retroarch-uwp/Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
